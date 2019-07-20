@@ -13,17 +13,24 @@ import java.util.Date;
 
 @WebServlet(name = "DateServlet", urlPatterns = {"/date"})
 public class DateServlet extends HttpServlet {
+    public void init() {
+        System.out.println("servlet init");
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         PrintWriter out = response.getWriter();
         DateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         {
             Date date = new Date();
             out.println("aktualnie data i godzina: " + currentDate.format(date));
         }
+    }
+
+    public void destroy() {
+        System.out.println("servlet destroy");
     }
 }
