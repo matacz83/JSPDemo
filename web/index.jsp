@@ -7,10 +7,29 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>JSPDemo</title>
+</head>
+<body>
+<h1><% out.print("Hello world!");%></h1>
+<br>
+Witaj, Matacz!
+<br>
+<a href="${pageContext.request.contextPath}/hello">Go to hello servlet</a>
+</body>
+<br>
+<form action="form" method="post">
+    <br>
+    Login: <input name="login" type="login"><br>
+    Hasło: <input name="password" type="password"><br>
+    <input type="submit" value="submit">
+    <br>
+    <br>
+    <% out.print("Pętla: "); %>
+    <br>
+    <%for (int i = 1; i < 5; i++) { %>
+    <div><%= i %>
+    </div>
+    <% } %>
+</form>
 </html>

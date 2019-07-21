@@ -7,13 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @WebServlet(name = "DateServlet", urlPatterns = {"/date"})
 public class DateServlet extends HttpServlet {
-    public void init() {
+
+    public void init(){
         System.out.println("servlet init");
     }
 
@@ -22,15 +21,12 @@ public class DateServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Date date = new Date();
         PrintWriter out = response.getWriter();
-        DateFormat currentDate = new SimpleDateFormat("dd-MM-yyyy HH:mm");
-        {
-            Date date = new Date();
-            out.println("aktualnie data i godzina: " + currentDate.format(date));
-        }
+        out.println(date.toString());
     }
 
-    public void destroy() {
+    public void destroy(){
         System.out.println("servlet destroy");
     }
 }
